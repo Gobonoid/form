@@ -23,7 +23,7 @@ lint: go-lint
 TEST_FLAGS := -v -cover
 .PHONY: test
 test: ## Run tests
-	@sh -c "while ! curl -s http://$(ACCOUNT_API_BASE_URL) > /dev/null; do echo waiting for 3s; sleep 3; done"
+	sh -c "while ! curl -s http://$(ACCOUNT_API_BASE_URL) > /dev/null; do echo waiting for 3s; sleep 3; done"
 	$(BUILDENV) go test $(TEST_FLAGS) ./...
 
 .PHONY: all
